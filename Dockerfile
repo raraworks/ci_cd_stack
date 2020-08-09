@@ -27,6 +27,6 @@ RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - \
     && apt-get install -y nodejs && apt-get install -y build-essential
 
 # RSYNC
-RUN apt-get install -y rsync
+RUN apt-get install -y ssh rsync
 
 CMD ["/bin/bash"]
