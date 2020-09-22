@@ -26,6 +26,9 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash - \
     && apt-get install -y nodejs && apt-get install -y build-essential
 
+# YARN
+RUN apt-get install -y yarnpkg
+
 # RSYNC
 RUN apt-get install -y ssh rsync
 
