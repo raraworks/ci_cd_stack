@@ -1,5 +1,5 @@
 FROM debian:buster-slim
-LABEL maintainer "rasmanis.raitis@gmail.com"
+LABEL maintainer="rasmanis.raitis@gmail.com"
 
 # UPDATE packages and install essentials
 RUN apt-get update \
@@ -12,7 +12,7 @@ RUN apt-get update \
 && apt-get install -y php8.0-fpm php8.0-mbstring php8.0-gd php8.0-bcmath php8.0-zip php8.0-xml php8.0-curl php8.0-intl php8.0-memcached php8.0-imap php8.0-pgsql php8.0-soap \
 # COMPOSER
 && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-&& php composer-setup.php \
+&& php composer-setup.php --2 \
 &&  php -r "unlink('composer-setup.php');" \
 && mv composer.phar /usr/local/bin/composer \
 # NODE & NPM
@@ -22,7 +22,5 @@ RUN apt-get update \
 && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
 && apt-get update && apt-get install -y yarn \
-# SSH & RSYNC
-&& apt-get install -y ssh rsync
 
 CMD ["/bin/bash"]
