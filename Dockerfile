@@ -9,7 +9,7 @@ RUN apt-get update \
 && wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
 && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list \
 && apt-get update \
-&& apt-get install -y php8.0-fpm \
+&& apt-get install -y php8.0-cli \
 # COMPOSER V2
 && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 && php composer-setup.php --2 \
