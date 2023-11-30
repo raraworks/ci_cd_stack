@@ -5,11 +5,11 @@ LABEL maintainer="rasmanis.raitis@gmail.com"
 RUN apt-get update \
 && apt-get -y upgrade \
 && apt-get -y install curl wget unzip lsb-release git \
-# PHP 8.1
+# PHP 8.2
 && wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
 && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list \
 && apt-get update \
-&& apt-get install -y php8.1-cli \
+&& apt-get install -y php8.2-cli \
 # COMPOSER V2
 && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 && php composer-setup.php --2 \
